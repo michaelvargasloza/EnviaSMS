@@ -1,0 +1,9 @@
+D:\@res\Software\SMS\SMS\bin\Debug\SMS.exe.config
+D:\@res\Software\SMS\SMS\bin\Debug\SMS.exe
+D:\@res\Software\SMS\SMS\bin\Debug\SMS.pdb
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.csprojResolveAssemblyReference.cache
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.Form1.resources
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.Properties.Resources.resources
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.csproj.GenerateResource.Cache
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.exe
+D:\@res\Software\SMS\SMS\obj\Debug\SMS.pdb
