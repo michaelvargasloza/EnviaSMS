@@ -1,6 +1,6 @@
 ﻿namespace SMS
 {
-    partial class Form1
+    partial class frmInicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtSMS = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
@@ -40,7 +42,7 @@
             this.lblPuertos = new System.Windows.Forms.Label();
             this.btnConectar = new System.Windows.Forms.Button();
             this.btnObtener = new System.Windows.Forms.Button();
-            this.gbxPuerto = new System.Windows.Forms.GroupBox();
+            this.gbxConfiguracion = new System.Windows.Forms.GroupBox();
             this.btnReestablecer = new System.Windows.Forms.Button();
             this.txtTamañoBufferLectura = new System.Windows.Forms.TextBox();
             this.txtTiempoEspera = new System.Windows.Forms.TextBox();
@@ -58,39 +60,48 @@
             this.cmbControlFlujo = new System.Windows.Forms.ComboBox();
             this.cmbParidad = new System.Windows.Forms.ComboBox();
             this.cmbBitPorSegundo = new System.Windows.Forms.ComboBox();
+            this.gbxPuerto = new System.Windows.Forms.GroupBox();
+            this.gbxMensaje = new System.Windows.Forms.GroupBox();
+            this.gbxEstado = new System.Windows.Forms.GroupBox();
+            this.lbxEstado = new System.Windows.Forms.ListBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblHora = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.gbxConfiguracion.SuspendLayout();
             this.gbxPuerto.SuspendLayout();
+            this.gbxMensaje.SuspendLayout();
+            this.gbxEstado.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnEnviar
             // 
-            this.button1.Location = new System.Drawing.Point(367, 359);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "&Enviar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnEnviar.Location = new System.Drawing.Point(379, 125);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviar.TabIndex = 0;
+            this.btnEnviar.Text = "&Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(240, 195);
+            this.txtTelefono.Location = new System.Drawing.Point(68, 18);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(202, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(386, 20);
             this.txtTelefono.TabIndex = 1;
             // 
             // txtSMS
             // 
-            this.txtSMS.Location = new System.Drawing.Point(240, 221);
+            this.txtSMS.Location = new System.Drawing.Point(68, 44);
             this.txtSMS.Multiline = true;
             this.txtSMS.Name = "txtSMS";
-            this.txtSMS.Size = new System.Drawing.Size(202, 102);
+            this.txtSMS.Size = new System.Drawing.Size(386, 74);
             this.txtSMS.TabIndex = 2;
             // 
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(182, 198);
+            this.lblNumero.Location = new System.Drawing.Point(10, 21);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(52, 13);
             this.lblNumero.TabIndex = 3;
@@ -99,7 +110,7 @@
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Location = new System.Drawing.Point(182, 224);
+            this.lblMensaje.Location = new System.Drawing.Point(10, 47);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(50, 13);
             this.lblMensaje.TabIndex = 4;
@@ -111,7 +122,7 @@
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(453, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(484, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,23 +144,23 @@
             // cmbPuerto
             // 
             this.cmbPuerto.FormattingEnabled = true;
-            this.cmbPuerto.Location = new System.Drawing.Point(240, 332);
+            this.cmbPuerto.Location = new System.Drawing.Point(119, 19);
             this.cmbPuerto.Name = "cmbPuerto";
-            this.cmbPuerto.Size = new System.Drawing.Size(202, 21);
+            this.cmbPuerto.Size = new System.Drawing.Size(335, 21);
             this.cmbPuerto.TabIndex = 6;
             // 
             // lblPuertos
             // 
             this.lblPuertos.AutoSize = true;
-            this.lblPuertos.Location = new System.Drawing.Point(182, 335);
+            this.lblPuertos.Location = new System.Drawing.Point(6, 22);
             this.lblPuertos.Name = "lblPuertos";
-            this.lblPuertos.Size = new System.Drawing.Size(46, 13);
+            this.lblPuertos.Size = new System.Drawing.Size(107, 13);
             this.lblPuertos.TabIndex = 7;
-            this.lblPuertos.Text = "Puertos:";
+            this.lblPuertos.Text = "Seleccione el puerto:";
             // 
             // btnConectar
             // 
-            this.btnConectar.Location = new System.Drawing.Point(286, 359);
+            this.btnConectar.Location = new System.Drawing.Point(379, 48);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(75, 23);
             this.btnConectar.TabIndex = 8;
@@ -159,7 +170,7 @@
             // 
             // btnObtener
             // 
-            this.btnObtener.Location = new System.Drawing.Point(205, 359);
+            this.btnObtener.Location = new System.Drawing.Point(298, 48);
             this.btnObtener.Name = "btnObtener";
             this.btnObtener.Size = new System.Drawing.Size(75, 23);
             this.btnObtener.TabIndex = 9;
@@ -167,35 +178,35 @@
             this.btnObtener.UseVisualStyleBackColor = true;
             this.btnObtener.Click += new System.EventHandler(this.btnObtener_Click);
             // 
-            // gbxPuerto
+            // gbxConfiguracion
             // 
-            this.gbxPuerto.Controls.Add(this.btnReestablecer);
-            this.gbxPuerto.Controls.Add(this.txtTamañoBufferLectura);
-            this.gbxPuerto.Controls.Add(this.txtTiempoEspera);
-            this.gbxPuerto.Controls.Add(this.txtTamañoBufferEscritura);
-            this.gbxPuerto.Controls.Add(this.label8);
-            this.gbxPuerto.Controls.Add(this.label7);
-            this.gbxPuerto.Controls.Add(this.label6);
-            this.gbxPuerto.Controls.Add(this.label5);
-            this.gbxPuerto.Controls.Add(this.label4);
-            this.gbxPuerto.Controls.Add(this.label3);
-            this.gbxPuerto.Controls.Add(this.label2);
-            this.gbxPuerto.Controls.Add(this.label1);
-            this.gbxPuerto.Controls.Add(this.cmbBitsParada);
-            this.gbxPuerto.Controls.Add(this.cmbBitDatos);
-            this.gbxPuerto.Controls.Add(this.cmbControlFlujo);
-            this.gbxPuerto.Controls.Add(this.cmbParidad);
-            this.gbxPuerto.Controls.Add(this.cmbBitPorSegundo);
-            this.gbxPuerto.Location = new System.Drawing.Point(12, 27);
-            this.gbxPuerto.Name = "gbxPuerto";
-            this.gbxPuerto.Size = new System.Drawing.Size(430, 162);
-            this.gbxPuerto.TabIndex = 10;
-            this.gbxPuerto.TabStop = false;
-            this.gbxPuerto.Text = "Configuración del puerto:";
+            this.gbxConfiguracion.Controls.Add(this.btnReestablecer);
+            this.gbxConfiguracion.Controls.Add(this.txtTamañoBufferLectura);
+            this.gbxConfiguracion.Controls.Add(this.txtTiempoEspera);
+            this.gbxConfiguracion.Controls.Add(this.txtTamañoBufferEscritura);
+            this.gbxConfiguracion.Controls.Add(this.label8);
+            this.gbxConfiguracion.Controls.Add(this.label7);
+            this.gbxConfiguracion.Controls.Add(this.label6);
+            this.gbxConfiguracion.Controls.Add(this.label5);
+            this.gbxConfiguracion.Controls.Add(this.label4);
+            this.gbxConfiguracion.Controls.Add(this.label3);
+            this.gbxConfiguracion.Controls.Add(this.label2);
+            this.gbxConfiguracion.Controls.Add(this.label1);
+            this.gbxConfiguracion.Controls.Add(this.cmbBitsParada);
+            this.gbxConfiguracion.Controls.Add(this.cmbBitDatos);
+            this.gbxConfiguracion.Controls.Add(this.cmbControlFlujo);
+            this.gbxConfiguracion.Controls.Add(this.cmbParidad);
+            this.gbxConfiguracion.Controls.Add(this.cmbBitPorSegundo);
+            this.gbxConfiguracion.Location = new System.Drawing.Point(12, 27);
+            this.gbxConfiguracion.Name = "gbxConfiguracion";
+            this.gbxConfiguracion.Size = new System.Drawing.Size(460, 159);
+            this.gbxConfiguracion.TabIndex = 10;
+            this.gbxConfiguracion.TabStop = false;
+            this.gbxConfiguracion.Text = "Configuración del puerto:";
             // 
             // btnReestablecer
             // 
-            this.btnReestablecer.Location = new System.Drawing.Point(231, 125);
+            this.btnReestablecer.Location = new System.Drawing.Point(270, 125);
             this.btnReestablecer.Name = "btnReestablecer";
             this.btnReestablecer.Size = new System.Drawing.Size(184, 23);
             this.btnReestablecer.TabIndex = 16;
@@ -207,21 +218,21 @@
             // 
             this.txtTamañoBufferLectura.Location = new System.Drawing.Point(315, 19);
             this.txtTamañoBufferLectura.Name = "txtTamañoBufferLectura";
-            this.txtTamañoBufferLectura.Size = new System.Drawing.Size(100, 20);
+            this.txtTamañoBufferLectura.Size = new System.Drawing.Size(139, 20);
             this.txtTamañoBufferLectura.TabIndex = 15;
             // 
             // txtTiempoEspera
             // 
             this.txtTiempoEspera.Location = new System.Drawing.Point(315, 71);
             this.txtTiempoEspera.Name = "txtTiempoEspera";
-            this.txtTiempoEspera.Size = new System.Drawing.Size(100, 20);
+            this.txtTiempoEspera.Size = new System.Drawing.Size(139, 20);
             this.txtTiempoEspera.TabIndex = 14;
             // 
             // txtTamañoBufferEscritura
             // 
             this.txtTamañoBufferEscritura.Location = new System.Drawing.Point(315, 45);
             this.txtTamañoBufferEscritura.Name = "txtTamañoBufferEscritura";
-            this.txtTamañoBufferEscritura.Size = new System.Drawing.Size(100, 20);
+            this.txtTamañoBufferEscritura.Size = new System.Drawing.Size(139, 20);
             this.txtTamañoBufferEscritura.TabIndex = 13;
             // 
             // label8
@@ -336,30 +347,89 @@
             this.cmbBitPorSegundo.Size = new System.Drawing.Size(121, 21);
             this.cmbBitPorSegundo.TabIndex = 0;
             // 
-            // Form1
+            // gbxPuerto
+            // 
+            this.gbxPuerto.Controls.Add(this.lblPuertos);
+            this.gbxPuerto.Controls.Add(this.cmbPuerto);
+            this.gbxPuerto.Controls.Add(this.btnObtener);
+            this.gbxPuerto.Controls.Add(this.btnConectar);
+            this.gbxPuerto.Location = new System.Drawing.Point(12, 192);
+            this.gbxPuerto.Name = "gbxPuerto";
+            this.gbxPuerto.Size = new System.Drawing.Size(460, 77);
+            this.gbxPuerto.TabIndex = 11;
+            this.gbxPuerto.TabStop = false;
+            this.gbxPuerto.Text = "Puerto:";
+            // 
+            // gbxMensaje
+            // 
+            this.gbxMensaje.Controls.Add(this.txtSMS);
+            this.gbxMensaje.Controls.Add(this.btnEnviar);
+            this.gbxMensaje.Controls.Add(this.txtTelefono);
+            this.gbxMensaje.Controls.Add(this.lblMensaje);
+            this.gbxMensaje.Controls.Add(this.lblNumero);
+            this.gbxMensaje.Location = new System.Drawing.Point(12, 275);
+            this.gbxMensaje.Name = "gbxMensaje";
+            this.gbxMensaje.Size = new System.Drawing.Size(460, 154);
+            this.gbxMensaje.TabIndex = 12;
+            this.gbxMensaje.TabStop = false;
+            this.gbxMensaje.Text = "Mensaje:";
+            // 
+            // gbxEstado
+            // 
+            this.gbxEstado.Controls.Add(this.lbxEstado);
+            this.gbxEstado.Location = new System.Drawing.Point(12, 435);
+            this.gbxEstado.Name = "gbxEstado";
+            this.gbxEstado.Size = new System.Drawing.Size(460, 131);
+            this.gbxEstado.TabIndex = 13;
+            this.gbxEstado.TabStop = false;
+            this.gbxEstado.Text = "Estado:";
+            // 
+            // lbxEstado
+            // 
+            this.lbxEstado.FormattingEnabled = true;
+            this.lbxEstado.Location = new System.Drawing.Point(6, 19);
+            this.lbxEstado.Name = "lbxEstado";
+            this.lbxEstado.Size = new System.Drawing.Size(448, 95);
+            this.lbxEstado.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Location = new System.Drawing.Point(9, 569);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(110, 13);
+            this.lblHora.TabIndex = 14;
+            this.lblHora.Text = "01/01/2000 00:00:00";
+            // 
+            // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 393);
+            this.ClientSize = new System.Drawing.Size(484, 591);
+            this.Controls.Add(this.lblHora);
+            this.Controls.Add(this.gbxEstado);
+            this.Controls.Add(this.gbxMensaje);
             this.Controls.Add(this.gbxPuerto);
-            this.Controls.Add(this.btnObtener);
-            this.Controls.Add(this.btnConectar);
-            this.Controls.Add(this.lblPuertos);
-            this.Controls.Add(this.cmbPuerto);
-            this.Controls.Add(this.lblMensaje);
-            this.Controls.Add(this.lblNumero);
-            this.Controls.Add(this.txtSMS);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.gbxConfiguracion);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMS";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gbxConfiguracion.ResumeLayout(false);
+            this.gbxConfiguracion.PerformLayout();
             this.gbxPuerto.ResumeLayout(false);
             this.gbxPuerto.PerformLayout();
+            this.gbxMensaje.ResumeLayout(false);
+            this.gbxMensaje.PerformLayout();
+            this.gbxEstado.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +437,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtSMS;
         private System.Windows.Forms.Label lblNumero;
@@ -379,7 +449,7 @@
         private System.Windows.Forms.Label lblPuertos;
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.Button btnObtener;
-        private System.Windows.Forms.GroupBox gbxPuerto;
+        private System.Windows.Forms.GroupBox gbxConfiguracion;
         private System.Windows.Forms.Button btnReestablecer;
         private System.Windows.Forms.TextBox txtTamañoBufferLectura;
         private System.Windows.Forms.TextBox txtTiempoEspera;
@@ -397,6 +467,12 @@
         private System.Windows.Forms.ComboBox cmbControlFlujo;
         private System.Windows.Forms.ComboBox cmbParidad;
         private System.Windows.Forms.ComboBox cmbBitPorSegundo;
+        private System.Windows.Forms.GroupBox gbxPuerto;
+        private System.Windows.Forms.GroupBox gbxMensaje;
+        private System.Windows.Forms.GroupBox gbxEstado;
+        private System.Windows.Forms.ListBox lbxEstado;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblHora;
     }
 }
 

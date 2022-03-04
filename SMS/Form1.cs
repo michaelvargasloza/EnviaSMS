@@ -13,67 +13,25 @@ using System.Collections;
 
 namespace SMS
 {
-    public partial class Form1 : Form
+    public partial class frmInicio : Form
     {
         SerialPort PuertoSerie = new SerialPort(); //Puerto de conexion COM
+        DateTime currentTime = new DateTime();
 
-        public Form1()
+        public frmInicio()
         {
             InitializeComponent();
             PuertosInicial(); //Establece los valores del puerto por defecto
             ObtenerPuertos();
+            ObtenerParametros();
+
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (PuertoSerie.IsOpen == false)
-            {
-                //OPCIONES.SelectedTab = tabConfiguracionModem;
-                MessageBox.Show("Antes de enviar el mensaje debe de introducir los datos del modem y seleccionarlo", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtTelefono.Clear();
-                txtSMS.Clear();
-                //dataGridView1.Columns.Clear();
-            }
-            else
-            {
-                if (txtTelefono.Text == "" | txtSMS.Text == "")
-                    MessageBox.Show("Introduzca # de teléfono y su mensaje", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                else
-                {
-                    try
-                    {
-                        //Poner AT en modo texto
-                        PuertoSerie.Write("AT+CMGF=1" + Convert.ToChar(13));
-                        System.Threading.Thread.Sleep(1000);
-                        PuertoSerie.Write("AT+CMGS=" + Convert.ToChar(34) + txtTelefono.Text
-                            + Convert.ToChar(34) + Convert.ToChar(13));
-                        System.Threading.Thread.Sleep(1000);
-                        PuertoSerie.Write(txtSMS.Text + Convert.ToChar(26));
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(1000);
-                        if (PuertoSerie.ReadExisting().IndexOf("OK") > 0)
-                        {
-                            MessageBox.Show("EL SMS HA SIDO ENVIADO A :" + txtTelefono.Text, "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtTelefono.Clear();
-                            txtSMS.Clear();
-                            //dataGridView1.Columns.Clear();
-                        }
-                        else
-                            //Error no esposible el envio
-                            MessageBox.Show("No es posible el envio del mensaje", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        PuertoSerie.DiscardInBuffer();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("ERROR : " + ex.ToString());
-                    }
-                }
-            }
         }
 
         //Metodo que lista los puertos de la PC
@@ -90,6 +48,45 @@ namespace SMS
             else
                 MessageBox.Show("No se han detectado puertos serie en su equipo, " +
                    "asegúrese de que están correctamente configurados.", "Mensaje");
+        }
+
+        //Metodo para obtener los datos de los ComboBox
+        private void ObtenerParametros()
+        {
+            cmbBitPorSegundo.Items.Add("110");
+            cmbBitPorSegundo.Items.Add("300");
+            cmbBitPorSegundo.Items.Add("1200");
+            cmbBitPorSegundo.Items.Add("2400");
+            cmbBitPorSegundo.Items.Add("4800");
+            cmbBitPorSegundo.Items.Add("9600");
+            cmbBitPorSegundo.Items.Add("19200");
+            cmbBitPorSegundo.Items.Add("38400");
+            cmbBitPorSegundo.Items.Add("57600");
+            cmbBitPorSegundo.Items.Add("115200");
+            cmbBitPorSegundo.Items.Add("230400");
+            cmbBitPorSegundo.Items.Add("460800");
+            cmbBitPorSegundo.Items.Add("921600");
+
+            cmbParidad.Items.Add("Par");
+            cmbParidad.Items.Add("Impar");
+            cmbParidad.Items.Add("Ninguno");
+            cmbParidad.Items.Add("Marca");
+            cmbParidad.Items.Add("Espacio");
+
+            cmbControlFlujo.Items.Add("Hardware");
+            cmbControlFlujo.Items.Add("Xon / Xoff");
+            cmbControlFlujo.Items.Add("Hardware y Xon/Xoff");
+            cmbControlFlujo.Items.Add("Ninguno");
+
+            cmbBitDatos.Items.Add("5");
+            cmbBitDatos.Items.Add("6");
+            cmbBitDatos.Items.Add("7");
+            cmbBitDatos.Items.Add("8");
+
+            cmbBitsParada.Items.Add("1");
+            cmbBitsParada.Items.Add("1.5");
+            cmbBitsParada.Items.Add("2");
+            cmbBitsParada.Items.Add("Ninguno");
         }
 
         //Obtiene los puertos de la PC
@@ -263,6 +260,66 @@ namespace SMS
             }
         }
 
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (PuertoSerie.IsOpen == false)
+            {
+                //OPCIONES.SelectedTab = tabConfiguracionModem;
+                MessageBox.Show("Antes de enviar el mensaje debe de introducir los datos del modem y seleccionarlo", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTelefono.Clear();
+                txtSMS.Clear();
+                //dataGridView1.Columns.Clear();
+            }
+            else
+            {
+                if (txtTelefono.Text == "" | txtSMS.Text == "")
+                    MessageBox.Show("Introduzca # de teléfono y su mensaje", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                {
+                    try
+                    {
+                        //Poner AT en modo texto
+                        PuertoSerie.Write("AT+CMGF=1" + Convert.ToChar(13));
+                        System.Threading.Thread.Sleep(1000);
+                        PuertoSerie.Write("AT+CMGS=" + Convert.ToChar(34) + txtTelefono.Text
+                            + Convert.ToChar(34) + Convert.ToChar(13));
+                        System.Threading.Thread.Sleep(1000);
+                        PuertoSerie.Write(txtSMS.Text + Convert.ToChar(26));
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(1000);
+                        if (PuertoSerie.ReadExisting().IndexOf("OK") > 0)
+                        {
+                            MessageBox.Show("EL SMS HA SIDO ENVIADO A :" + txtTelefono.Text, "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtTelefono.Clear();
+                            txtSMS.Clear();
+                            //dataGridView1.Columns.Clear();
+                        }
+                        else
+                            //Error no esposible el envio
+                            MessageBox.Show("No es posible el envio del mensaje", "◄ TRS SMS ►", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        PuertoSerie.DiscardInBuffer();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("ERROR : " + ex.ToString());
+                    }
+                }
+            }
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            cmbBitPorSegundo.Text = "9600";
+            cmbParidad.Text = "Ninguno";
+            cmbControlFlujo.Text = "Ninguno";
+            cmbBitDatos.Text = "8";
+            cmbBitsParada.Text = "1";
+
+            txtTamañoBufferLectura.Text = "1024";
+            txtTamañoBufferEscritura.Text = "1024";
+            txtTiempoEspera.Text = "500";
+        }
+
         private void PuertosInicial()
         {
             cmbBitPorSegundo.Text = "9600";
@@ -275,17 +332,10 @@ namespace SMS
             txtTiempoEspera.Text = "500";
         }
 
-        private void btnReestablecer_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            cmbBitPorSegundo.Text = "9600";
-            cmbParidad.Text = "Ninguno";
-            cmbControlFlujo.Text = "Ninguno";
-            cmbBitDatos.Text = "8";            
-            cmbBitsParada.Text = "1";
-            
-            txtTamañoBufferLectura.Text = "1024";
-            txtTamañoBufferEscritura.Text = "1024";
-            txtTiempoEspera.Text = "500";
+            currentTime = DateTime.Now;
+            lblHora.Text = currentTime.ToString();
         }
     }
 }

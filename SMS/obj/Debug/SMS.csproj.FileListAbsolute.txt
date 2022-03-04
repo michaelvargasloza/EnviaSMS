@@ -13,6 +13,6 @@ D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.pdb
 D:\@res\Software\EnviaSMS\SMS\bin\Debug\SMS.exe
 D:\@res\Software\EnviaSMS\SMS\bin\Debug\SMS.pdb
 D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.csprojResolveAssemblyReference.cache
-D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.Form1.resources
 D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.Properties.Resources.resources
 D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.csproj.GenerateResource.Cache
+D:\@res\Software\EnviaSMS\SMS\obj\Debug\SMS.frmInicio.resources
